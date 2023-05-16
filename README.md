@@ -1,5 +1,4 @@
 # wogen
-
 Wordlist Generator used by pentester to create millions of possible password in just a minutes. Password will be base on the target's info.
 
 
