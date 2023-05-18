@@ -31,8 +31,18 @@
 #
 # - GODFR3YP4DU4
 
+import itertools
+import threading
+import datetime
+import shutil
+import time
+import sys
+import re
+import os
 
 
+# third party
+import phonenumbers
 
 
 
@@ -49,31 +59,32 @@ class Color:
 # Make sure that the required module are in the system
 # before running the whole program
 # try importing the module if not found, install it
-import importlib
-import time
-import os
+
+
+
 
 
 # REQUIRED MODULES
-modules = [
-            'phonenumbers',
-            're',
-            'random',
-            'datetime',
-            'itertools',
-            'shutil',
-            'threading',
-            'sys'
-            ]
+# modules = [
+#             'phonenumbers',
+#             're',
+#             'random',
+#             'datetime',
+#             'itertools',
+#             'shutil',
+#             'threading',
+#             'sys'
+#             ]
 
-for module in modules:
-    try:
-        globals()[module] = importlib.import_module(module)
-    except:
-        print(f'{Color.red}\nModule not found!{Color.reset}')
-        print('\nInstalling required module')
-        time.sleep(3)
-        os.system(f'python3 -m pip install {module}')
+# for module in modules:
+#     try:
+#         globals()[module] = importlib.import_module(module)
+#     except:
+#         print(f'{Color.red}\nModule not found!{Color.reset}')
+#         print('\nInstalling required module')
+#         time.sleep(3)
+#         os.system(f'python3 -m pip install {module}')
+
 
 
 
@@ -206,7 +217,9 @@ class Validator:
                     else:
                         print(Color.red + 'Invalid number. Please try again.' + Color.reset)
                         continue
-                except:
+                except Exception as e:
+                    print(e)
+
                     print(Color.red + 'Invalid number. Please try again.' + Color.reset)
                     continue
             else:
